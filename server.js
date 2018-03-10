@@ -5,6 +5,7 @@ var server = app.listen(3000);
 
 app.use(express.static('public'));
 
+
 console.log("Socket is running");
 
 var socket = require('socket.io');
@@ -22,10 +23,10 @@ function newConnection(socket){
 function MessageArrived(data)
 {
 	// to all except its own
-	//socket.broadcast.emit('FrontEndData',"DemoPassingMessage");
+	socket.broadcast.emit('FrontEndData',data);
 
 	// to all including itself
-	 io.sockets.emit('FrontEndData',"DemoPassingMessage");
+	// io.sockets.emit('EmitUpdates',data);
 	console.log(data);
 }
 

@@ -1,17 +1,193 @@
-<html>
-<header>
-	    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	    <script type="text/javascript" src="./socket.js"></script>
-<title>
-SocketExample
-</title>
-</header>
-
+	<title>SuperMacIot Cloud</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
 <body>
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">S.NO.</th>
+								<th class="column2">Description</th>
+								<th class="column3">Value</th>
+								<th class="column4">Unit</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+								<tr>
+									<td class="column1">1</td>
+									<td class="column2">Cable size</td>
+									<td class="column3"><input id='1' type="text" value="1.5" onBlur="InputModified(1,document.getElementById('1').value)"></td>
+									<td class="column4">mm2</td>
+
+								</tr>
+								<tr>
+									<td class="column1">2</td>
+									<td class="column2">Cable diameter</td>
+									<td class="column3"><input id="2" type="text" value="2.35" onBlur="InputModified(2,document.getElementById('2').value)"></td>
+									<td class="column4">mm</td>
+								</tr>
+								<tr>
+									<td class="column1">3</td>
+									<td class="column2">Act. line speed</td>
+									<td class="column3"><input id="3" type="text" value="700" onBlur="InputModified(3,document.getElementById('3').value)"></td>
+									<td class="column4">MPM</td>
+								</tr>
+								<tr>
+									<td class="column1">4</td>
+									<td class="column2">Ext-1 screw rpm</td>
+									<td class="column3"><input id="4" type="text" value="40" onBlur="InputModified(4,document.getElementById('4').value)"></td>
+									<td class="column4"></td>
+								</tr>
+								<tr>
+									<td class="column1">5</td>
+									<td class="column2">Ext-2 screw rpm</td>
+									<td class="column3"><input id="5" type="text" value="35" onBlur="InputModified(5,document.getElementById('5').value)"></td>
+									<td class="column4"></td>
+								</tr>
+								<tr>
+									<td class="column1">6</td>
+									<td class="column2">Ext-1 motor current</td>
+									<td class="column3"><input id="6" type="text" value="90.5" onBlur="InputModified(6,document.getElementById('6').value)"></td>
+									<td class="column4">Amp</td>
+								</tr>
+								<tr>
+									<td class="column1">7</td>
+									<td class="column2">Ext-2 motor current</td>
+									<td class="column3"><input id="7" type="text" value="15.2" onBlur="InputModified(7,document.getElementById('7').value)"></td>
+									<td class="column4">Amp</td>
+								</tr>
+								<tr>
+									<td class="column1">8</td>
+									<td class="column2">Ext-1 melt temperature</td>
+									<td class="column3"><input id="8" type="text" value="125" onBlur="InputModified(8,document.getElementById('8').value)"></td>
+									<td class="column4">°C</td>
+								</tr>
+								<tr>
+									<td class="column1">9</td>
+									<td class="column2">Ext-2 melt temperature</td>
+									<td class="column3"><input id="9" type="text" value="130" onBlur="InputModified(9,document.getElementById('9').value)"></td>
+									<td class="column4">°C</td>
+								</tr>
+								<tr>
+									<td class="column1">10</td>
+									<td class="column2">Ext-1 melt pressure</td>
+									<td class="column3"><input id="10" type="text" value="185" onBlur="InputModified(10,document.getElementById('10').value)"></td>
+									<td class="column4">bar</td>
+								</tr>
+								<tr>
+									<td class="column1">11</td>
+									<td class="column2">Ext-2 melt pressure</td>
+									<td class="column3"><input id="11" type="text" value="195" onBlur="InputModified(11,document.getElementById('11').value)"></td>
+									<td class="column4">bar</td>
+								</tr>
+								<tr>
+									<td class="column1">12</td>
+									<td class="column2">Length Counter</td>
+									<td class="column3"><input id="12" type="text" value="2015" onBlur="InputModified(12,document.getElementById('12').value)"></td>
+									<td class="column4">meter</td>
+								</tr>
+								<tr>
+									<td class="column1">13</td>
+									<td class="column2">Total length(m/c)</td>
+									<td class="column3"><input id="13" type="text" value="2221578" onBlur="InputModified(13,document.getElementById('13').value)"></td>
+									<td class="column4">KM</td>
+								</tr>
+
+																<tr>
+									<td class="column1">14</td>
+									<td class="column2">Machine running status</td>
+									<td class="column3"><input id="14" type="text" value="true" onBlur="InputModified(14,document.getElementById('14').value)"></td>
+									<td class="column4"></td>
+								</tr>
+																<tr>
+									<td class="column1">15</td>
+									<td class="column2">Ext-1  running status</td>
+									<td class="column3"><input id="15" type="text" value="false" onBlur="InputModified(15,document.getElementById('15').value)"></td>
+									<td class="column4"></td>
+								</tr>
+																<tr>
+									<td class="column1">16</td>
+									<td class="column2">Ext-2  running status</td>
+									<td class="column3"><input id="16" type="text" value="false" onBlur="InputModified(16,document.getElementById('16').value)"></td>
+									<td class="column4"></td>
+								</tr>
+																<tr>
+									<td class="column1">17</td>
+									<td class="column2">Exit capstan  running status</td>
+									<td class="column3"><input id="17" type="text" value="true" onBlur="InputModified(17,document.getElementById('17').value)"></td>
+									<td class="column4"></td>
+								</tr>
+																<tr>
+									<td class="column1">18</td>
+									<td class="column2">Tup-1 running status</td>
+									<td class="column3"><input id="18" type="text" value="true" onBlur="InputModified(18,document.getElementById('18').value)"></td>
+									<td class="column4"></td>
+								</tr>
+																<tr>
+									<td class="column1">19</td>
+									<td class="column2">Tup-1 running status</td>
+									<td class="column3"><input id="19" type="text" value="true" onBlur="InputModified(19,document.getElementById('19').value)"></td>
+									<td class="column4"></td>
+								</tr>
+																	<tr>
+									<td class="column1">20</td>
+									<td class="column2">Spark tester count</td>
+									<td class="column3"><input id="20" type="text" value="10" onBlur="InputModified(19,document.getElementById('20').value)"></td>
+									<td class="column4"></td>
+								</tr>
+															<tr>
+									<td class="column1">21</td>
+									<td class="column2">Spark tester voltage</td>
+									<td class="column3"><input id="21" type="text" value="11.0" onBlur="InputModified(21,document.getElementById('21').value)"></td>
+									<td class="column4">KV</td>
+								</tr>
+								
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-Socket
+	
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
 </body>
-
 </html>
