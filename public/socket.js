@@ -2,7 +2,7 @@ console.log("FE socket");
 
 var socket;
 
-socket = io.connect('172.20.10.2:3000');
+socket = io.connect('13.127.224.111:3000');
 
 socket.emit("FrontEndData",'DemoData');
 
