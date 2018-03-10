@@ -255,16 +255,16 @@ tbody tr:hover {
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Date";
+    content: "S.No.";
   }
   table tbody tr td:nth-child(2):before {
-    content: "Order ID";
+    content: "Desc.";
   }
   table tbody tr td:nth-child(3):before {
-    content: "Name";
+    content: "Value";
   }
   table tbody tr td:nth-child(4):before {
-    content: "Price";
+    content: "Unit";
   }
   table tbody tr td:nth-child(5):before {
     content: "Quantity";
