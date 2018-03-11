@@ -55,7 +55,7 @@ function dataChange(data){
 
 	var countParam= data.P2C_IntArray[0];//100;
 	var decimal = data.P2C_IntArray[1];//24;
-	var binaryDecimalArray = ("0000000" + parseInt(Number(decimal).toString(2))).slice(-8).split('');;
+	var binaryDecimalArray = ("00000000" + parseInt(Number(decimal).toString(2))).slice(-8).split('').reverse();
 
 	var jsonObj = JSON.parse('{\"index\": '+ 16 +',\"newValue\":'+ countParam +'}');
 	arry.push(jsonObj);
