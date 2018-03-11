@@ -53,7 +53,28 @@ function dataChange(data){
     var jsonObj = JSON.parse('{\"index\": '+ 17 +',\"newValue\":'+ data.P2C_RealArray[15] +'}');
 	arry.push(jsonObj);
 
-	socket.broadcast.emit('FrontEndData',data);
+	var countParam= data.P2C_IntArray[0];//100;
+	var decimal = data.P2C_IntArray[1];//24;
+	var binaryDecimalArray = ("0000000" + parseInt(Number(decimal).toString(2))).slice(-8).split('');;
+
+	var jsonObj = JSON.parse('{\"index\": '+ 16 +',\"newValue\":'+ countParam +'}');
+	arry.push(jsonObj);
+
+	for (var i = 0; i < binaryDecimalArray.length; i++) 
+	{
+		if(binaryDecimalArray[i]=='1')
+		{
+			var jsonObj = JSON.parse('{\"index\": '+ (18+i) +',\"newValue\":'+ "true" +'}');
+		}
+		else
+		{
+			var jsonObj = JSON.parse('{\"index\": '+ (18+i) +',\"newValue\":'+ "false" +'}');
+		}
+
+		arry.push(jsonObj);
+	};
+
+	//socket.broadcast.emit('FrontEndData',data);
 
 	socket.broadcast.emit('UpdateUi',arry);
 	console.log(arry);
