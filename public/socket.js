@@ -26,7 +26,7 @@ function UpdateUiFunction(data)
 {
 	console.log(data.length);
 
-	for (var i = 0; i <= data.length; i++) 
+	for (var i = 0; i < data.length; i++) 
 	{
 		var inputField = document.getElementById(data[i].index);
 		inputField.value=data[i].newValue.toString();
