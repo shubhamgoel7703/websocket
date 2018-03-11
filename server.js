@@ -47,12 +47,13 @@ function dataChange(data){
      {
      	var jsonObj = JSON.parse('{\"index\": '+(i+1) +',\"newValue\":'+ data.P2C_RealArray[i] +'}');
 		arry.push(jsonObj);
-		socket.broadcast.emit('FrontEndData',data[i]);
+		//socket.broadcast.emit('FrontEndData',data[i]);
      };
     
     var jsonObj = JSON.parse('{\"index\": '+ 17 +',\"newValue\":'+ data.P2C_RealArray[15] +'}');
 	arry.push(jsonObj);
-	socket.broadcast.emit('FrontEndData',data[15]);
+
+	socket.broadcast.emit('FrontEndData',data);
 
 	socket.broadcast.emit('UpdateUi',arry);
 	console.log(arry);
