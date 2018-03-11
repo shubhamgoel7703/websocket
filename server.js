@@ -14,11 +14,14 @@ var io = socket(server);
 
 io.sockets.on('connection',newConnection);
 
+
 function newConnection(socket){
 	console.log("new connection created" + socket.id);
 	//console.log(socket);
 	socket.on('FrontEndData',MessageArrived);
+	socket.on('DataChange',dataChange);
 
+	socket.on("UpdateBE",UpdateBEFunction);
 
 function MessageArrived(data)
 {
@@ -30,4 +33,29 @@ function MessageArrived(data)
 	console.log(data);
 }
 
+function dataChange(data){
+	console.log(data);
+	console.log("modify");
+
+	}
+
+	function UpdateBEFunction(data)
+{
+     var arry = [];
+
+     for (var i = 0; i <= 14; i++) 
+     {
+     	var jsonObj = JSON.parse('{\"index\": '+(i+1) +',\"newValue\":'+ data.P2C_RealArray[i] +'}');
+		arry.push(jsonObj);
+     };
+    
+    var jsonObj = JSON.parse('{\"index\": '+ 17 +',\"newValue\":'+ data.P2C_RealArray[15] +'}');
+	arry.push(jsonObj);
+
+	socket.broadcast.emit('UpdateUi',arry);
+	console.log(arry);
+	console.log("ok");
 }
+
+}
+
